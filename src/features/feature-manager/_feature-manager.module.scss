@@ -1,0 +1,12 @@
+@import "theme/constants.module.scss";
+
+.show-recipe-card {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+
+  padding: 2em;
+  // background-color: red;
+  margin-top: 4em;
+  gap: 2em;
+}

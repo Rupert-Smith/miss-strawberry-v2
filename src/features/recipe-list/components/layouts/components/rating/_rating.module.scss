@@ -1,0 +1,11 @@
+@import "theme/constants.module.scss";
+@import "theme/mixins.scss";
+
+.rating-star {
+  width: 1.6em;
+}
+
+.rating-star-wrapper {
+  display: flex;
+  gap: 0.2em;
+}

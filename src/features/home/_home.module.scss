@@ -1,0 +1,24 @@
+@import "theme/constants.module.scss";
+
+.home-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.miss-strawberry-image-container {
+  background-color: $color-primary-beachYellow;
+  border-radius: 20em;
+  width: 17em;
+  border: white 0.4em solid;
+  display: flex;
+  padding-left: 0.2em;
+  margin-top: -23em;
+  height: 16.7em;
+
+  img {
+    height: 16em;
+    margin-bottom: -0.1em;
+  }
+}

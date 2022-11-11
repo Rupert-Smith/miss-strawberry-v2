@@ -1,0 +1,8 @@
+@import "theme/constants.module.scss";
+@import "theme/mixins.scss";
+
+.action-button-shell {
+  @include actionButton;
+  border: $border-default;
+  border-color: $color-border-light;
+}

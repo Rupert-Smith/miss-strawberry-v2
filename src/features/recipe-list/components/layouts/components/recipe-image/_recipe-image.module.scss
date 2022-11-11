@@ -1,0 +1,27 @@
+@import "theme/constants.module.scss";
+@import "theme/mixins.scss";
+
+.recipe-picture {
+  object-fit: cover;
+}
+
+.flag {
+  position: absolute;
+  border: $border-default;
+  border-color: $color-border-light;
+  border-radius: $borderRadius-circle;
+}
+
+.medium {
+  height: 2em;
+  width: 2em;
+  margin-left: -2.5em;
+  margin-top: 0.7em;
+}
+
+.small {
+  height: 1.7em;
+  width: 1.7em;
+  margin-left: -2.2em;
+  margin-top: 0.7em;
+}

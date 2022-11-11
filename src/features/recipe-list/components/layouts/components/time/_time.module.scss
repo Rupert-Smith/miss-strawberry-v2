@@ -1,0 +1,12 @@
+@import "theme/constants.module.scss";
+@import "theme/mixins.scss";
+
+.recipe-time {
+  font-size: $fontSize-500-medium;
+  display: flex;
+  gap: 0.3em;
+
+  svg {
+    width: 0.9em;
+  }
+}

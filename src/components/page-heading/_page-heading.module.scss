@@ -1,0 +1,38 @@
+@import "theme/constants.module.scss";
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  // margin-top: -$padding-inner-window;
+  // z-index: 1000;
+  color: $color-primary-nightBlack;
+  font-size: $fontSize-900-title;
+  // background-color: white;
+
+  gap: 0.5em;
+
+  svg {
+    width: 1em;
+  }
+}
+
+// .full {
+//   width: 100%;
+// }
+
+// .shrink {
+//   width: 50%;
+//   right: 0em;
+//   // margin-right: 30%;
+// }
+
+// .page-heading-fixed {
+//   position: fixed;
+//   padding-bottom: 1.6em;
+//   padding-top: 2.4em;
+// }
+
+// .page-heading-relative {
+//   position: relative;
+//   margin-top: 0.4em;
+// }

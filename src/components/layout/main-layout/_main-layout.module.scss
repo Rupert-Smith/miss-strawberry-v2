@@ -1,0 +1,13 @@
+@import "theme/constants.module.scss";
+
+.main-content {
+  display: flex;
+  gap: $main-layout-spacing;
+  height: 100vh;
+  width: 100%;
+  background-color: $color-primary-sunshineYellow-light;
+  padding: $main-layout-spacing;
+  padding-left: $sidebar-width + $main-layout-spacing;
+  padding-top: $header-height + $main-layout-spacing;
+  position: fixed;
+}
