@@ -1,0 +1,28 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.search-bar-button {
+  color: white;
+  background-color: $color-primary-cherryBlossomPink;
+  border-radius: $borderRadius-circle;
+  display: flex;
+  position: absolute;
+  font-size: 0.8em;
+  gap: 0.6em;
+  padding: 0.55em 3em;
+  align-items: center;
+  justify-content: center;
+  @include defaultHoverTransition;
+  svg {
+    width: 1em;
+    color: white;
+  }
+}
+
+.search-bar-button:hover {
+  background-color: $color-primary-cherryBlossomPink-hover;
+}
+
+.default-header-button {
+  @include defaultHeaderButton;
+}

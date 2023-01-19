@@ -1,0 +1,8 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.recipe-title {
+  font-size: $fontSize-900-title;
+  max-width: 10em;
+  @include clippedText;
+}

@@ -1,0 +1,51 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.input-icon {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  border-radius: $borderRadius-default;
+  padding-top: $rectangle-container-small-padding;
+  padding-bottom: $rectangle-container-small-padding;
+
+  svg {
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    width: 1.3em;
+    height: 1.2em;
+    color: $color-medium-grey;
+  }
+
+  .line {
+    border-right: 1px solid $color-medium-grey;
+    margin-right: 0.7em;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    font-size: $fontSize-500-medium;
+    border: none;
+    color: $color-primary-nightBlack;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.5; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    opacity: 0.5; /* Firefox */
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    opacity: 0.5; /* Firefox */
+  }
+}

@@ -1,0 +1,102 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.header {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between;
+  background-color: $color-primary-sunshineYellow !important;
+  padding: 0em 1em;
+  box-shadow: none !important;
+  height: $header-height;
+  position: fixed;
+  z-index: 1300 !important; //sidebar z-index is 1200
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3em;
+}
+
+.show-hide-button {
+  width: 1.5em;
+
+  svg {
+    color: $color-primary-bubblegumPink;
+  }
+  transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+
+  transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+.show-hide-button-show {
+  transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+.home-button {
+  border-color: white;
+}
+
+.header-circle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $circle-button-default-size;
+  height: $circle-button-default-size;
+  border-radius: $borderRadius-circle;
+  border-style: solid;
+  border-width: $default-button-border-width;
+  @include defaultHoverTransition;
+}
+
+.miss-strawberry-home-image {
+  width: 1.9em;
+  margin-right: 0.3em;
+  margin-bottom: 0.05em;
+}
+
+.menu-header-button {
+  color: $color-primary-bubblegumPink;
+  width: 1.2em;
+  @include defaultHoverTransition;
+}
+
+.default-header-button {
+  @include defaultHeaderButton;
+}
+
+.profile-button {
+  border-radius: 90em;
+}
+
+.new-recipe-button {
+  border-color: $color-primary-bubblegumPink;
+  background-color: white;
+  svg {
+    color: $color-primary-bubblegumPink;
+    width: 1.05em;
+  }
+}
+
+.new-recipe-button:hover {
+  border-color: white;
+  background-color: $color-primary-cherryBlossomPink;
+  svg {
+    color: white;
+  }
+}

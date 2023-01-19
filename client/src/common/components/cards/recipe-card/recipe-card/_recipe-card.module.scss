@@ -1,0 +1,17 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.recipe-container {
+  flex: 2;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: $default-box-shadow;
+}
+
+.recipe-body {
+  background-color: white;
+}
+
+.recipe-head {
+  color: $color-primary-nightBlack;
+}

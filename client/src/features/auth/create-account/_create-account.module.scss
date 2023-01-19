@@ -1,0 +1,26 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.login-block {
+  width: 20em;
+  display: flex;
+  gap: 0.8em;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cancel {
+  text-align: center;
+  @include mediumBrownText;
+  margin: 0em 3em;
+}
+
+.cancel:hover {
+  @include textUnderline;
+}
+
+.bottom-block {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}

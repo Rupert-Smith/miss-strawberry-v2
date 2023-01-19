@@ -1,0 +1,7 @@
+@import 'assets/theme/constants.module.scss';
+@import 'assets/theme/mixins.scss';
+
+.action-buttons {
+  display: flex;
+  gap: 0.7em;
+}

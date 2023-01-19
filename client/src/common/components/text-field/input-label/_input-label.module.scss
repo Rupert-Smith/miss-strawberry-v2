@@ -1,0 +1,48 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.input-label {
+  gap: 1em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  input {
+    padding-left: $rectangle-container-small-padding;
+    padding-top: $rectangle-container-small-padding;
+    padding-bottom: $rectangle-container-small-padding;
+    border-radius: $borderRadius-default;
+    width: 100%;
+    font-size: $fontSize-500-medium;
+    border: none;
+    color: $color-primary-nightBlack;
+  }
+
+  .label-text {
+    position: absolute;
+    margin-left: -38.5em;
+    width: 15em;
+    text-align: right;
+    font-weight: $font-weight-bold;
+    color: $color-primary-nightBlack;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.5; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    opacity: 0.5; /* Firefox */
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    opacity: 0.5; /* Firefox */
+  }
+}

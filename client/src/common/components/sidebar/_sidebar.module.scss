@@ -1,0 +1,61 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.sidebar {
+  background-color: $color-primary-creamWhite;
+  width: 15em !important;
+}
+
+.sidebar-option {
+  @include defaultHoverTransition;
+}
+
+.sidebar-option:hover {
+  background-color: $color-primary-cherryBlossomPink;
+  color: white;
+
+  svg {
+    opacity: 100;
+  }
+}
+
+// .sidebar-option .MuiListItemButton-gutters {
+//   padding: 0em !important;
+// }
+
+.option-button {
+  width: $circle-button-default-size;
+  height: $circle-button-default-size;
+  margin-right: 1em;
+  border-radius: $borderRadius-circle;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  align-items: center;
+  @include defaultHoverTransition;
+}
+
+.yellow-button {
+  background-color: $color-primary-sunshineYellow;
+}
+
+.pink-button {
+  background-color: $color-primary-babyPink;
+}
+
+.medium-button-image {
+  height: 1.1em;
+  width: 1em;
+}
+
+.small-button-image {
+  margin-top: 0.13em;
+  height: 0.8em;
+  width: 0.9em;
+}
+
+.arrow-icon {
+  opacity: 0;
+  width: 0.6em;
+  color: $color-secondary-marshmellowPink;
+}

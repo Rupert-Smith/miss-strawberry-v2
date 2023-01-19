@@ -1,0 +1,30 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.login-block {
+  width: 20em;
+  display: flex;
+  gap: 0.8em;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-an-account {
+  text-align: center;
+  @include mediumBrownTextHover;
+}
+
+.create-an-account:hover {
+  @include textUnderline;
+}
+
+.forgot-password {
+  text-decoration: none !important;
+  text-align: center;
+  border-color: $color-medium-grey;
+  @include smallGreyText;
+}
+
+.forgot-password:hover {
+  @include textUnderline;
+}

@@ -1,0 +1,73 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.overview-head {
+  // background-color: $color-primary-cherryBlossomPink;
+  @include recipeCardHeadDefault;
+}
+
+.overview-body {
+  display: flex;
+  gap: $inner-window-spacing-small;
+  // background-color: $color-secondary-marshmellowPink;
+}
+
+.recipe-picture {
+  width: 100%;
+  height: 13em;
+  border-radius: $borderRadius-default;
+  border: $border-default;
+  border-color: $color-border-light;
+}
+
+.image-container {
+  width: 60%;
+}
+
+.overview-list {
+  display: flex;
+  padding: 0.3em 0em;
+  // align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.overview-list-row {
+  display: flex;
+  align-items: center;
+
+  gap: 1em;
+
+  svg {
+    width: 1.3em;
+    height: 1.3em;
+  }
+}
+
+.veg-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+
+  img {
+    width: 1.3em;
+    height: 1.3em;
+  }
+}
+
+.tick-icon {
+  color: $color-secondary-fieldGreen;
+}
+
+.cross-icon {
+  color: $color-primary-strawberryRed;
+}
+
+.overview-list-row-value {
+  margin-top: -0.3em;
+}
+
+.source-value {
+  max-width: 17em;
+  @include clippedText;
+}

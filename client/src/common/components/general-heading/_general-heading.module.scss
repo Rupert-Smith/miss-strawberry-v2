@@ -1,0 +1,25 @@
+@import "assets/theme/constants.module.scss";
+
+.page-heading {
+  display: flex;
+  align-items: center;
+  color: $color-primary-nightBlack;
+
+  gap: 0.5em;
+}
+
+.big {
+  font-size: $fontSize-600-big;
+  svg {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+.small {
+  font-size: $fontSize-550-medium-title;
+  svg {
+    width: 0.9em;
+    height: 0.9em;
+  }
+}

@@ -1,0 +1,12 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: $borderRadius-default;
+  padding-top: $rectangle-container-small-padding;
+  padding-bottom: $rectangle-container-small-padding;
+  @include defaultHoverTransition;
+}

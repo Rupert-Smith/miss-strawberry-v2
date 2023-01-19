@@ -1,0 +1,71 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.results-master-container {
+  background-color: white;
+  flex: 1;
+  border-radius: $borderRadius-default;
+  overflow: hidden;
+  border: $border-default;
+  border-color: $color-border-light;
+  box-shadow: $default-box-shadow;
+}
+
+.results-list-block {
+  gap: $gap-result-cards;
+  flex-wrap: wrap;
+}
+
+.results-list {
+  overflow: scroll;
+  display: flex;
+  padding: 0em $inner-window-spacing;
+}
+.results-list-long {
+  height: 10em;
+
+  flex-direction: column;
+  gap: $inner-window-spacing-small;
+}
+
+// .results-list-block {
+//   display: flex;
+//   overflow: wrap;
+
+//   // gap: $gap-result-cards;
+//   // overflow: hidden;
+//   // overflow-y: hidden;
+// }
+
+// .results-list {
+//   height: 10em;
+//   padding: 0em $inner-window-spacing;
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: $inner-window-spacing-small;
+// }
+
+// .results-list-list {
+//   overflow: scroll;
+//   flex-direction: column;
+// }
+
+.search-results-long-full {
+  width: 100%;
+}
+
+.search-results-long-shrink {
+  width: 50%;
+}
+
+.close-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding-top: $inner-window-spacing;
+  padding-right: $inner-window-spacing;
+}
+
+.close-button {
+  // float: right;
+}

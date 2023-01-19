@@ -1,0 +1,29 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.tags-card-head {
+  @include recipeCardHeadDefault;
+}
+
+.tags-container {
+  min-height: 7em;
+  max-height: 5%;
+  overflow: scroll;
+}
+
+.tag {
+  width: fit-content;
+  padding: $padding-small-card;
+  border-radius: $borderRadius-circle;
+  color: $color-primary-nightBlack;
+  border: $border-default;
+  border-color: $color-border-light;
+  @include defaultHoverTransition;
+  display: inline-block;
+  margin: 0.3em 0.7em;
+}
+
+.tag:hover {
+  background-color: $color-default-hover;
+  color: white;
+}

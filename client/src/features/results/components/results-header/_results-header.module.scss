@@ -1,0 +1,66 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  padding-left: $inner-window-spacing;
+  padding-top: $inner-window-spacing;
+  padding-bottom: $inner-window-spacing;
+  border-top-left-radius: $borderRadius-default;
+  border-top-right-radius: $borderRadius-default;
+}
+
+.results-bar {
+  display: flex;
+  align-items: center;
+  font-size: $fontSize-500-medium;
+  width: fit-content;
+  // right: 0em;
+  z-index: 2000;
+  // position: fixed;
+  padding-right: 6em;
+  border-top-left-radius: $borderRadius-circle;
+  border-bottom-left-radius: $borderRadius-circle;
+  background-color: $color-secondary-creamWhiteDark;
+}
+
+.result-total {
+  padding-left: 2em;
+  font-weight: 900;
+}
+
+.layer-buttons-container {
+  display: flex;
+  gap: 0.6em;
+}
+
+.layer-button {
+  @include actionButton;
+  @include actionButtonDefault;
+  border: $border-default;
+  border-color: white;
+}
+
+.layer-button-selected {
+  background-color: $color-primary-bubblegumPink;
+  svg {
+    color: white;
+  }
+}
+
+.layer-button-not-selected {
+  background-color: $color-primary-creamWhite;
+  svg {
+    color: $color-primary-bubblegumPink;
+  }
+}
+
+.layer-button-not-selected:hover {
+  border: $border-default;
+  border-color: $color-primary-bubblegumPink;
+}
+
+.close-button {
+  right: 0;
+}

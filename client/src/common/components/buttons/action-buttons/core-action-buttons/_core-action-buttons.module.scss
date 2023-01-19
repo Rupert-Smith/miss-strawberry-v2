@@ -1,0 +1,29 @@
+@import "assets/theme/constants.module.scss";
+
+.delete-recipe {
+  background-color: $color-primary-dolphinGrey;
+}
+
+.add-to-cart {
+  background-color: $color-primary-beachYellow;
+}
+
+.add-to-cart:hover {
+  background-color: $color-primary-beachYellow-hover;
+}
+
+.add-to-favourites {
+  background-color: $color-primary-babyPink;
+}
+
+.add-to-favourites:hover {
+  background-color: $color-primary-babyPink-hover;
+}
+
+.edit-recipe-button {
+  background-color: $color-secondary-skyBlue;
+}
+
+.edit-recipe-button:hover {
+  background-color: $color-secondary-skyBlue-hover;
+}
