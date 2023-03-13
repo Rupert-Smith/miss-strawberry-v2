@@ -106,8 +106,9 @@
 
 @mixin defaultHeaderButton {
   color: $color-primary-bubblegumPink;
-  width: 1.6em;
-  @include defaultHoverTransition;
+  // width: 1.6em;
+  width: 28px;
+  height: 28px;
 }
 
 @mixin smallGreyText {
@@ -141,4 +142,57 @@
   text-decoration: underline !important; // OLD
   // border-bottom: 1px solid;
   // padding-bottom: 0.2em;
+}
+
+@mixin headerCircleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $borderRadius-circle;
+  border-style: solid;
+  border-width: $button-border-width-default;
+}
+
+@mixin optionButton {
+  margin-right: 1em;
+  border-radius: $borderRadius-circle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin inputDefault {
+  border: $border-default;
+  border-color: $border-color-light;
+  border-radius: $borderRadius-default;
+  height: $input-default-height;
+  padding: 5px 10px;
+  font-size: $fontSize-500-medium;
+}
+
+@mixin overrideMuiStylesInput {
+  border: none !important;
+  fieldset {
+    border: none;
+  }
+
+  input {
+    height: 1.7em !important;
+  }
+}
+
+@mixin disabled {
+  color: $color-disabled-dark;
+
+  img {
+    filter: grayscale(100%);
+  }
+
+  &:hover {
+    cursor: default;
+  }
+}
+
+@mixin notDisabled {
+  @include defaultHoverTransition;
 }

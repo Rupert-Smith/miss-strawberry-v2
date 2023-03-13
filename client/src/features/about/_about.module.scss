@@ -1,0 +1,89 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.about-container {
+  // z-index: 1000000;
+  position: absolute;
+  background-color: white;
+  text-align: center;
+  border-radius: $borderRadius-default;
+  border: $border-default;
+  border-color: $border-color-default;
+  padding: 3em 3.5em;
+  padding-bottom: 4.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.7em;
+  width: 37em;
+}
+
+.cross {
+  top: 2em;
+  right: 2em;
+  position: absolute;
+  width: 1.2em;
+  @include defaultHoverTransition;
+}
+
+.cross:hover {
+  color: $color-primary-bubblegumPink;
+}
+
+.miss-strawberry-image {
+  width: 11em;
+}
+
+.text-container {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  line-height: $line-height-default;
+}
+
+.text-block {
+  width: 31em;
+}
+
+.name {
+  margin-top: 1em;
+}
+
+.heart-shape {
+  width: 1em;
+  margin-left: 0.4em;
+  margin-bottom: -0.15em;
+}
+
+.new-recipe-icon-container {
+  position: relative;
+  display: flex;
+}
+
+.new-recipe-icon {
+  width: 1.5em;
+  margin-left: 15.2em;
+  margin-top: -1.7em;
+  height: 1.5em;
+  @include headerCircleButton;
+  display: flex;
+  margin-right: -1em;
+  position: absolute;
+  svg {
+    width: 0.7em;
+  }
+}
+
+.favourites-button {
+  margin-left: 18.8em;
+  margin-top: -1.6em;
+  position: absolute;
+  background-color: $color-sidebar-pink-button;
+  @include optionButton;
+  width: 1.2em;
+  height: 1.2em;
+  padding: 0.7em;
+  img {
+    width: 0.55em;
+  }
+}

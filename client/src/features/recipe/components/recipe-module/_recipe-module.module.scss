@@ -1,0 +1,56 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.card {
+}
+
+.head {
+  @include recipeCardHeadDefault;
+
+  @include defaultHoverTransition;
+}
+
+.head:hover {
+  background-color: $color-primary-babyPink;
+  color: white;
+}
+
+.body {
+  z-index: 0;
+
+  // padding: 0;
+  // padding-right: $inner-window-spacing-small;
+}
+
+.header-right-corner {
+  position: absolute;
+  right: 1.2em;
+  margin-bottom: -0.1em;
+}
+
+.open-close-icons {
+  width: 1em;
+  margin-bottom: -0.1em;
+  @include defaultHoverTransition;
+}
+
+.plus-icon {
+  margin-bottom: -0.2em;
+}
+
+.shrink-vertical {
+  @include recipeCardHeadDefault;
+  flex-direction: column;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  // @include defaultHoverTransition;
+  svg {
+    width: 1.5em;
+  }
+}
+
+.shrink-vertical:hover {
+  background-color: $color-primary-babyPink;
+  color: white;
+}

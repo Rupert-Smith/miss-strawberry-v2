@@ -1,5 +1,22 @@
 @import "assets/theme/constants.module.scss";
 
+.feature-manager {
+}
+
+.new-recipe {
+  // display: flex;
+
+  height: 100vh;
+  // gap: $main-layout-spacing;
+}
+
+.two-cards {
+  display: flex;
+  gap: $main-layout-spacing;
+  height: 100%;
+  // overflow: hidden;
+}
+
 .show-recipe-card {
   display: flex;
   flex-direction: row;

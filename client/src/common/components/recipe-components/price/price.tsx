@@ -1,12 +1,18 @@
 type Pricetype = {
-  priceNumber: number;
+  priceNumber: number | null;
 };
 
 function Price({ priceNumber }: Pricetype) {
   return (
     <div>
-      <strong>{`£${priceNumber.toFixed(2)} `}</strong>
-      per person
+      {priceNumber ? (
+        <>
+          <strong>{`£${priceNumber.toFixed(2)} `}</strong>
+          per person
+        </>
+      ) : (
+        "no price specified"
+      )}
     </div>
   );
 }

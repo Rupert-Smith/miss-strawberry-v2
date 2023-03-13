@@ -1,0 +1,9 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+.star {
+  width: 2em;
+}
+
+.fill-star {
+  color: $color-primary-sunshineYellow;
+}

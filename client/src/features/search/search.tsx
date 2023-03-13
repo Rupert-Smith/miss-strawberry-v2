@@ -4,83 +4,90 @@ import "./mui-header-styles.scss";
 import { ReactComponent as SearchIcon } from "assets/icons/magnifying-glass-light.svg";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { NavLink } from "react-router-dom";
 import { ReactComponent as TagIcon } from "assets/icons/tag-light.svg";
 import { ReactComponent as SearchSettingsIcon } from "assets/icons/sliders-light.svg";
-import { useDispatch } from "react-redux";
-import { commonAppActions } from "common/store/common-app-slice";
+import useGetResults from "../results/hooks/use-get-results";
+import variables from "assets/theme/_constants.module.scss";
 
-function Search() {
+type SearchTypes = {
+  disabled: Boolean;
+};
+
+function Search({ disabled }: SearchTypes) {
   return (
     <>
-      <SearchBar />
-      <SearchSettingsButton />
-      <TagButton />
+      <SearchBar disabled={disabled} />
+      {/* <SearchSettingsButton />
+      <TagButton /> */}
     </>
   );
 }
 
-function SearchBar() {
+function SearchBar({ disabled }: SearchTypes) {
+  const { handleSearch } = useGetResults();
   const [searchQuery, setSearchQuery] = useState("");
   const searchSuggestions = ["pizza", "strawberries", "chocolate muffins"];
-  const dispatch = useDispatch();
-
-  const handleSearchQuery = (inputValue: string) => {
-    setSearchQuery(inputValue);
-  };
-
-  function handleClickSearch() {
-    dispatch(
-      commonAppActions.setCurrentOpenFeatureCards({
-        cardAction: "add",
-        cardId: "results",
-      })
-    );
-  }
 
   return (
-    <NavLink to="/search">
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        !disabled && handleSearch(searchQuery);
+      }}
+      className={styles["search-form"]}
+    >
       <Autocomplete
         className={`search-bar-mui`}
         freeSolo
+        disabled={disabled && true}
         id="free-solo-2-demo"
         disableClearable
         options={searchQuery === "" ? [] : searchSuggestions}
         renderInput={(params) => (
-          <>
-            <TextField
-              className={styles["search-bar"]}
-              {...params}
-              placeholder="what do you want to eat?"
-              InputProps={{
-                style: {
-                  width: "32em",
-                  padding: "0em",
-                  paddingLeft: ".8em",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "2em",
-                  background: "white",
-                  fontSize: ".8em",
-                },
-              }}
-              value={searchQuery}
-              onChange={(event) => {
-                handleSearchQuery(event.target.value);
-              }}
-            />
-            <div
-              onClick={() => handleClickSearch()}
-              className={styles["search-bar-button"]}
-            >
-              <SearchIcon />
-              Search
-            </div>
-          </>
+          <TextField
+            className={`${styles["search-bar"]} ${
+              disabled
+                ? styles["search-bar-disabled"]
+                : styles["search-bar-not-disabled"]
+            }`}
+            {...params}
+            placeholder={!disabled ? "what do you want to eat?" : ""}
+            InputProps={{
+              style: {
+                width: "32em",
+                backgroundColor: disabled ? variables.disabledLight : "white",
+                padding: "0em",
+                paddingLeft: ".8em",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                borderRadius: "2em",
+                background: "white",
+                fontSize: ".8em",
+              },
+            }}
+            value={searchQuery}
+            onChange={(event) => {
+              setSearchQuery(event.target.value);
+            }}
+          />
         )}
       />
-    </NavLink>
+      <button
+        className={`${styles["search-bar-button"]}  ${
+          disabled ? styles["button-disabled"] : styles["button-not-disabled"]
+        }`}
+      >
+        <div className={`${styles["search-bar-button-inside"]}`}>
+          {!disabled && (
+            <>
+              <SearchIcon />
+              search
+            </>
+          )}
+        </div>
+      </button>
+    </form>
   );
 }
 

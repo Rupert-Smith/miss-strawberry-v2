@@ -3,8 +3,10 @@
 
 .button {
   width: 100%;
+  font-size: $fontSize-500-medium;
   display: flex;
   justify-content: center;
+  border: none;
   border-radius: $borderRadius-default;
   padding-top: $rectangle-container-small-padding;
   padding-bottom: $rectangle-container-small-padding;

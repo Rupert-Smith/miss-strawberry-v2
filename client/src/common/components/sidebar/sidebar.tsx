@@ -6,10 +6,10 @@ import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import {
-  sidebarOptions,
-  specialSidebarOptions,
-} from "common/components/sidebar/sidebarOptions";
+// import {
+//   sidebarOptions,
+//   specialSidebarOptions,
+// } from "common/components/sidebar/sidebarOptions";
 import { ReactComponent as ArrowIcon } from "assets/icons/play-solid.svg";
 import styles from "./_sidebar.module.scss";
 import variables from "assets/theme/_constants.module.scss";
@@ -18,6 +18,10 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import "./sidebar.css";
 import Tooltip from "@mui/material/Tooltip";
+import useGetSidebarOptions from "./hooks/use-get-sidebar-options";
+import { useSelector } from "react-redux";
+import { RootState } from "store";
+import { useState } from "react";
 
 const drawerWidth = 140;
 
@@ -72,13 +76,21 @@ const Drawer = styled(MuiDrawer, {
 
 type SidebarProps = {
   open: boolean;
-  toggleSidebarOpen: Function;
+  setSidebar: Function;
 };
 
-function Sidebar({ open, toggleSidebarOpen }: SidebarProps) {
+function Sidebar({ open, setSidebar }: SidebarProps) {
+  const disabled = useSelector(
+    (state: RootState) => state.sidebarHeader.disabledComponents.sidebar
+  );
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const { sidebarOptions, specialSidebarOptions } = useGetSidebarOptions();
+
   const theme = useTheme();
 
-  let tooltipsOn = false;
+  let tooltipsOn = !disabled && true;
 
   return (
     // <Box className={styles["test"]} sx={{ display: "flex" }}>
@@ -99,76 +111,119 @@ function Sidebar({ open, toggleSidebarOpen }: SidebarProps) {
           <IconButton />
         </DrawerHeader>
         <List>
-          {specialSidebarOptions.map((option, index) => (
-            <Tooltip
-              key={option.label}
-              enterDelay={700}
-              title={`${tooltipsOn && !open ? option.label : ""}`}
-            >
-              <ListItem
-                className={styles["sidebar-option"]}
+          {specialSidebarOptions.map((option, index) => {
+            const selected = window.location.href.includes(
+              `recipes/${option.label}`
+            );
+
+            console.log(selected);
+
+            return (
+              <Tooltip
                 key={option.label}
-                disablePadding
+                enterDelay={1000}
+                title={`${tooltipsOn && !open ? option.label : ""}`}
               >
-                <ListItemButton disableRipple>
-                  <div
-                    className={`${styles["option-button"]} ${
-                      styles[option.buttonStyles]
-                    }`}
-                  >
-                    <img
-                      style={option.iconStyles}
-                      src={option.button}
-                      alt={option.label}
+                <ListItem
+                  className={`${
+                    disabled
+                      ? styles["sidebar-option-disabled"]
+                      : styles["sidebar-option"]
+                  } ${selected && styles["selected"]}`}
+                  key={option.label}
+                  disablePadding
+                  onClick={() => {
+                    if (!disabled) {
+                      setSelectedOption(option.label);
+                      setSidebar(false);
+                      option.onClick();
+                    }
+                  }}
+                >
+                  <ListItemButton disableRipple>
+                    <div
+                      className={`${styles["option-button"]} ${
+                        disabled
+                          ? styles["disabled"]
+                          : styles[option.buttonStyles]
+                      }`}
+                    >
+                      <img
+                        style={option.iconStyles}
+                        src={option.button}
+                        alt={option.label}
+                      />
+                    </div>
+                    <ListItemText
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{ style: { fontSize: "0.8em" } }}
+                      primary={option.label}
                     />
-                  </div>
-                  <ListItemText
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{ style: { fontSize: "0.8em" } }}
-                    primary={option.label}
-                  />
-                  <ArrowIcon className={`${styles["arrow-icon"]}`} />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
+                    <ArrowIcon className={`${styles["arrow-icon"]}`} />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            );
+          })}
         </List>
         <Divider />
         <List>
-          {sidebarOptions.map((option, index) => (
-            <Tooltip
-              key={option.label}
-              enterDelay={700}
-              title={`${tooltipsOn && !open ? option.label : ""}`}
-            >
-              <ListItem
-                className={styles["sidebar-option"]}
-                disablePadding
-                // onClick={toggleSidebarOpen}
+          {sidebarOptions.map((option, index) => {
+            const selected = window.location.href.includes(
+              `recipes/${option.id}`
+            );
+
+            return (
+              <Tooltip
+                key={option.label}
+                enterDelay={1000}
+                title={`${tooltipsOn && !open ? option.label : ""}`}
+                onClick={() => {
+                  if (!disabled) {
+                    setSidebar(false);
+                    option.onClick();
+                  }
+                }}
               >
-                <ListItemButton disableRipple>
-                  <div
-                    className={`${styles["option-button"]} ${
-                      styles[option.buttonStyles]
-                    }`}
-                    // onClick={toggleSidebarOpen}
-                  >
-                    <img
-                      style={option.iconStyles}
-                      src={option.button}
-                      alt={option.label}
+                <ListItem
+                  className={`${
+                    disabled
+                      ? styles["sidebar-option-disabled"]
+                      : styles["sidebar-option"]
+                  }  ${selected && styles["selected"]}`}
+                  disablePadding
+                  // onClick={setSidebar}
+                >
+                  <ListItemButton disableRipple>
+                    <div
+                      className={`${styles["option-button"]} ${
+                        styles[option.buttonStyles]
+                      }  ${
+                        disabled
+                          ? styles["disabled"]
+                          : styles[option.buttonStyles]
+                      } ${
+                        disabled ? styles["disabled"] : styles["not-disabled"]
+                      }`}
+                      // onClick={setSidebar}
+                    >
+                      <img
+                        style={option.iconStyles}
+                        src={option.button}
+                        alt={option.label}
+                      />
+                    </div>
+                    <ListItemText
+                      sx={{ opacity: open ? 1 : 0 }}
+                      primaryTypographyProps={{ style: { fontSize: "0.8em" } }}
+                      primary={option.label}
                     />
-                  </div>
-                  <ListItemText
-                    sx={{ opacity: open ? 1 : 0 }}
-                    primaryTypographyProps={{ style: { fontSize: "0.8em" } }}
-                    primary={option.label}
-                  />
-                  <ArrowIcon className={`${styles["arrow-icon"]}`} />
-                </ListItemButton>
-              </ListItem>
-            </Tooltip>
-          ))}
+                    <ArrowIcon className={`${styles["arrow-icon"]}`} />
+                  </ListItemButton>
+                </ListItem>
+              </Tooltip>
+            );
+          })}
         </List>
       </Drawer>
     </>

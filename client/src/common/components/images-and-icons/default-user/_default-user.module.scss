@@ -1,0 +1,26 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.default-user {
+  width: $circle-button-default-size;
+  height: $circle-button-default-size;
+  @include headerCircleButton;
+  // @include defaultHoverTransition;
+  svg {
+    width: 13px;
+  }
+}
+
+.button {
+  // background-color: $color-primary-sunshineYellow-light;
+  background-color: white;
+  color: $color-primary-nightBlack;
+}
+
+.picture {
+  background-color: $color-soft-white;
+  border-color: $color-primary-bubblegumPink;
+  svg {
+    color: $color-primary-bubblegumPink;
+  }
+}

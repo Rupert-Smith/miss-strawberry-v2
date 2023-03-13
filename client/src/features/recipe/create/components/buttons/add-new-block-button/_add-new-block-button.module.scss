@@ -1,0 +1,23 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.add-new-button {
+  display: flex;
+  padding-left: 3em;
+  padding-right: 3em;
+  width: fit-content;
+  background-color: $color-secondary-fieldGreen-light;
+  align-items: center;
+  justify-content: center;
+  height: 2.2em;
+  gap: 0.8em;
+  @include defaultHoverTransition;
+  svg {
+    width: 1em;
+  }
+}
+
+.add-new-button:hover {
+  background-color: $color-secondary-fieldGreen;
+  color: white;
+}

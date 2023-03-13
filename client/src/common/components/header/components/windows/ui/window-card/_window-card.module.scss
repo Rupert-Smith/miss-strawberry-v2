@@ -1,0 +1,13 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.window-card {
+  border: $border-default;
+  border-color: $border-color-light;
+  border-radius: $borderRadius-default;
+}
+
+.default-color {
+  // background-color: $color-secondary-marshmellowPink;
+  background-color: white;
+}

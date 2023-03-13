@@ -1,0 +1,66 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.recipe-card-container {
+  width: 75em;
+  margin: auto;
+}
+
+.new-recipe-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-primary-nightBlack;
+}
+
+.header-center-wrapper {
+  display: flex;
+  gap: 1.5em;
+  align-items: center;
+}
+
+.head-tite-icon-wrapper {
+  display: flex;
+  gap: 0.9em;
+  svg {
+    width: 1.5em;
+    color: white;
+  }
+}
+
+.head-title {
+  font-size: $fontSize-card-header;
+  color: white;
+  width: fit-content;
+}
+
+.close-button {
+  right: 1.4em;
+  position: absolute;
+}
+
+.submit-button {
+  height: 2em;
+  align-items: center;
+  width: fit-content;
+  padding: 0em 4em;
+  border: $border-default;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: $inner-window-spacing-small;
+}
+
+.collapse-all-container {
+  @include defaultHoverTransition;
+
+  svg {
+    width: 1.7em;
+  }
+}
+
+.collapse-all-container :hover {
+  color: $color-primary-cherryBlossomPink;
+}

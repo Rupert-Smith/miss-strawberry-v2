@@ -1,0 +1,119 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.overview-body {
+  z-index: 10000;
+  display: flex;
+  width: 100%;
+  align-content: flex-start;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  min-width: 35em;
+}
+
+.multi-input-row {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+}
+
+.image-container {
+  margin: 0.5em 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.4em;
+  justify-content: center;
+  border-radius: $borderRadius-default;
+  border: 10px solid $color-primary-dolphinGrey;
+  width: 100%;
+  @include defaultHoverTransition;
+
+  svg {
+    color: $color-light-grey;
+    width: 5em;
+  }
+
+  img {
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    max-height: 20em;
+  }
+}
+
+.image-container:hover {
+  background-color: $color-medium-grey;
+  color: white;
+  svg {
+    color: white;
+  }
+}
+
+.image-container-big-text {
+  font-size: $fontSize-600-big;
+}
+
+.image-container-small-text {
+  font-size: $fontSize-300-small;
+}
+
+.country-option-master-container {
+  margin-bottom: -0.4em;
+}
+
+.override-mui-styles-input {
+  @include overrideMuiStylesInput;
+}
+
+.select-directory {
+  width: 8em;
+}
+
+.country-option-master-container {
+  z-index: 99999;
+}
+
+.country-option-drop-down {
+  margin-left: -0.6em;
+  margin-top: 0.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  background-color: white;
+  border: $border-default;
+  border-color: $border-color-light;
+  border-radius: $borderRadius-default;
+  padding: 0.5em;
+  padding-right: 1em;
+  max-height: 10em;
+  overflow: scroll;
+  position: absolute;
+}
+
+.country-option-image {
+  width: 2.9em;
+  border: $border-default;
+  border-color: $border-color-light;
+  border-radius: $borderRadius-default;
+  height: 1.8em;
+  @include defaultHoverTransition;
+}
+
+.title-component {
+  width: 100%;
+  @include inputDefault;
+}
+
+.link-component {
+  font-size: $fontSize-500-medium;
+  padding: 0.2em 0.5em;
+  border: none;
+  @include inputDefault;
+  width: 21em;
+}

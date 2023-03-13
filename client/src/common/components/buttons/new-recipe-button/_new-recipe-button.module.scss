@@ -1,0 +1,34 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+@mixin on {
+  border-color: white;
+  background-color: $color-primary-cherryBlossomPink;
+  svg {
+    color: white;
+  }
+}
+
+@mixin off {
+  background-color: white;
+  svg {
+    color: $color-primary-bubblegumPink;
+  }
+}
+
+.new-recipe-button {
+  border-color: $color-primary-bubblegumPink;
+}
+
+.newRecipeActivated {
+  @include on;
+}
+
+.newRecipeDeactivated {
+  @include off;
+  @include defaultHoverTransition;
+}
+
+.newRecipeDeactivated:hover {
+  @include on;
+}

@@ -5,6 +5,7 @@ import { ReactComponent as CartIcon } from "assets/icons/cart-shopping-light.svg
 import { ReactComponent as TrashIcon } from "assets/icons/trash-can-light.svg";
 import { ReactComponent as EditIcon } from "assets/icons/pen-light.svg";
 import HeartIcon from "assets/images/sidebar/heart.png";
+import useCoreActionButtons from "../../../../../features/favourites/hooks/use-add-to-favourites";
 
 type actionButtonType = {
   onMouseEnter?: any;
@@ -24,6 +25,7 @@ export function DeleteRecipeButton({
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
       className={styles["delete-recipe"]}
+      propsOnClick={() => {}}
     >
       <TrashIcon />
     </ActionButtonShell>
@@ -38,6 +40,7 @@ export function AddToCartButton({
   return (
     <ActionButtonShell
       small={small}
+      propsOnClick={() => {}}
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
       className={styles["add-to-cart"]}
@@ -47,17 +50,33 @@ export function AddToCartButton({
   );
 }
 
+type favouriteButtonType = {
+  onMouseEnter?: any;
+  onMouseLeave?: any;
+  className?: ReactNode;
+  small?: boolean;
+  recipeId: string;
+  favourite: boolean;
+};
+
 export function AddToFavouritesButton({
   small,
   onMouseEnter,
   onMouseLeave,
-}: actionButtonType) {
+  recipeId,
+  favourite,
+}: favouriteButtonType) {
+  const { handleToggleFavourites } = useCoreActionButtons();
+
   return (
     <ActionButtonShell
       small={small}
+      propsOnClick={() => {
+        handleToggleFavourites(recipeId, !favourite);
+      }}
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
-      className={styles["add-to-favourites"]}
+      className={`${favourite ? styles["favourite"] : styles["not-favourite"]}`}
     >
       <img src={HeartIcon} alt="Favourites" />
     </ActionButtonShell>
@@ -72,6 +91,7 @@ export function EditRecipeButton({
   return (
     <ActionButtonShell
       small={small}
+      propsOnClick={() => {}}
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
       className={styles["edit-recipe-button"]}

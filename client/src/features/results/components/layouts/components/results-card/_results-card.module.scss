@@ -1,5 +1,5 @@
-@import "assets/theme/constants.module.scss";
-@import "assets/theme/mixins.scss";
+@import 'assets/theme/constants.module.scss';
+@import 'assets/theme/mixins.scss';
 
 .results-card {
   @include defaultHoverTransition;
@@ -9,9 +9,9 @@
 }
 
 .results-card-no-hover {
-  background-color: $color-soft-white;
+  background-color: $color-super-soft-white;
 }
 
 .results-card-hover {
-  background-color: $color-primary-babyPink;
+  background-color: $color-soft-white;
 }

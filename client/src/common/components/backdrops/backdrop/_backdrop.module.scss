@@ -1,0 +1,21 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+
+  background-size: cover;
+  height: 100vh;
+  // background-position: center;
+  // height: 200em;
+  // background-color: rgba(0, 0, 0, 0.6);
+}
+
+.blur {
+  backdrop-filter: blur(3px);
+}

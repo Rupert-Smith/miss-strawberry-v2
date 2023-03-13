@@ -7,7 +7,7 @@ type actionButtonType = {
   customButtonColor?: string;
   customButtonTextColor?: string;
   propsClassName?: ReactNode;
-  propsOnClick: MouseEventHandler;
+  propsOnClick?: Function;
 };
 
 export function SquareButton({
@@ -23,8 +23,12 @@ export function SquareButton({
   const buttonTextColor = customButtonColor ? customButtonColor : "white";
 
   return (
-    <div
-      onClick={propsOnClick}
+    <button
+      onClick={() => {
+        if (propsOnClick) {
+          propsOnClick();
+        }
+      }}
       style={{
         backgroundColor: buttonColor,
         color: buttonTextColor,
@@ -32,6 +36,6 @@ export function SquareButton({
       className={`${propsClassName} ${styles["button"]}`}
     >
       {buttonText}
-    </div>
+    </button>
   );
 }

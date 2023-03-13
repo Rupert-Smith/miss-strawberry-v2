@@ -1,0 +1,32 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.tips-card-head {
+  @include recipeCardHeadDefault;
+}
+
+.tips-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  // max-height: 8em;
+}
+
+.tip-container {
+  display: flex;
+  gap: $inner-window-spacing;
+  align-items: center;
+}
+
+.tip-list-text {
+  border-color: $color-primary-nightBlack;
+  width: fit-content;
+}
+
+.tip-list-lightbulb {
+  @include recipeListBulletCircle;
+  border: $border-default;
+  color: $color-primary-nightBlack;
+  border-color: $color-primary-nightBlack;
+}

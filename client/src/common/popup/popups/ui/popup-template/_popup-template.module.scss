@@ -1,0 +1,65 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+$popup-body-padding: 0.7em;
+$popup-message-padding: 1em;
+
+.popup-template-container {
+  background-color: white;
+  border-radius: $borderRadius-default;
+  border: $border-default;
+  border-color: $border-color-light;
+  width: 30em;
+}
+
+.popup-template-header {
+  border-top-left-radius: $borderRadius-default;
+  border-top-right-radius: $borderRadius-default;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+  justify-content: center;
+  padding: 0.7em 0em;
+
+  :first-child {
+    width: 1.6em;
+    margin-right: 0.5em;
+  }
+}
+
+.header-text {
+  font-size: $fontSize-500-medium;
+}
+
+.cross {
+  position: absolute;
+  right: 1em;
+  width: 0.8em;
+  @include defaultHoverTransition;
+}
+
+.cross:hover {
+  color: $color-primary-bubblegumPink;
+}
+
+.popup-template-body {
+  padding: $popup-body-padding;
+}
+
+.popup-template-message {
+  padding: $popup-message-padding;
+  padding-bottom: $popup-message-padding + $popup-body-padding;
+}
+
+.button-container {
+  display: flex;
+  gap: 0.5em;
+  justify-content: right;
+}
+
+.pink-button {
+  width: fit-content;
+  padding: 0.5em 3em;
+}

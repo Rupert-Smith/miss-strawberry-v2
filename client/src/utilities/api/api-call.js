@@ -1,9 +1,10 @@
-import { CURRENT_API_VERSION } from "constants/constants";
+import { CURRENT_API_VERSION } from "constants/api-constants";
 
 export const apiCall = async (requestConfig) => {
   //  process.env.REACT_APP_DEV_API;
 
-  const requestUrl = `http://localhost:5000/api/${CURRENT_API_VERSION}/${requestConfig.url}`;
+  console.log(requestConfig);
+  const requestUrl = `http://localhost:5000/api/${CURRENT_API_VERSION}${requestConfig.url}`;
 
   console.log(requestUrl);
   console.log(JSON.stringify(requestConfig.body));

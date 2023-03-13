@@ -3,9 +3,15 @@
 .page-heading {
   display: flex;
   align-items: center;
-  color: $color-primary-nightBlack;
-
   gap: 0.5em;
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: $color-primary-nightBlack;
 }
 
 .big {

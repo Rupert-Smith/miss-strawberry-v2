@@ -1,26 +1,26 @@
 @import "assets/theme/constants.module.scss";
 @import "assets/theme/mixins.scss";
 
-.login-block {
-  width: 20em;
+.form-block {
   display: flex;
-  gap: 0.8em;
   flex-direction: column;
+  gap: 0.6em;
+}
+
+.bottom-block {
+  margin-top: 0.8em;
+  display: flex;
+  gap: 1em;
   align-items: center;
 }
 
 .cancel {
-  text-align: center;
-  @include mediumBrownText;
-  margin: 0em 3em;
+  padding: 0 1.5em;
+  @include mediumBrownTextHover;
+  flex-grow: 2;
+  @include defaultHoverTransition;
 }
 
 .cancel:hover {
   @include textUnderline;
-}
-
-.bottom-block {
-  display: flex;
-  align-items: center;
-  width: 100%;
 }

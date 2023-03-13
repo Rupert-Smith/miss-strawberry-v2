@@ -1,8 +1,9 @@
-@import "assets/theme/constants.module.scss";
-@import "assets/theme/mixins.scss";
+@import 'assets/theme/constants.module.scss';
+@import 'assets/theme/mixins.scss';
 
 .results-header {
   display: flex;
+  min-height: 5.5em;
   justify-content: space-between;
   padding-left: $inner-window-spacing;
   padding-top: $inner-window-spacing;
@@ -17,7 +18,7 @@
   font-size: $fontSize-500-medium;
   width: fit-content;
   // right: 0em;
-  z-index: 2000;
+  z-index: $zindex-results-banner;
   // position: fixed;
   padding-right: 6em;
   border-top-left-radius: $borderRadius-circle;

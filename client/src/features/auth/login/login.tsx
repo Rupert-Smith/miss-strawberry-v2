@@ -2,24 +2,17 @@ import styles from "./_login.module.scss";
 import { useState } from "react";
 import { AuthLayout } from "../components/layout/auth-layout";
 import { SquareButton } from "common/components/buttons/square-button";
-import { InputIcon } from "common/components/text-field/input-icon";
+import { InputIcon } from "common/components/inputs/text-field/input-icon";
 import { ReactComponent as UsernameIcon } from "assets/icons/circle-user-solid.svg";
 import { ReactComponent as PasswordIcon } from "assets/icons/lock-solid.svg";
 import { NavLinkNoUnderline } from "common/components/helper-components/nav-link-no-underline";
-import { apiCall } from "utilities/api/api-call";
+import useHandleLogin from "./hooks/use-handle-login";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    console.log(username, password);
-    await apiCall({
-      url: "./login",
-      method: "POST",
-      body: { username, password },
-    });
-  };
+  const { handleLogin } = useHandleLogin(username, password);
 
   const usernameInputConfig = {
     placeholder: "username",
@@ -31,7 +24,7 @@ function Login() {
   };
   const passwordInputConfig = {
     placeholder: "password",
-    type: "text",
+    type: "password",
     value: password,
     onChange: (event: any) => {
       setPassword(event.target.value);
@@ -39,28 +32,36 @@ function Login() {
   };
 
   return (
-    <AuthLayout>
-      <div className={`${styles["login-block"]}`}>
-        <InputIcon icon={<UsernameIcon />} inputConfig={usernameInputConfig} />
-        <InputIcon icon={<PasswordIcon />} inputConfig={passwordInputConfig} />
-        <NavLinkNoUnderline to="/forgot-password">
-          <div className={`${styles["forgot-password"]}`}>
-            forgot your password?
-          </div>
-        </NavLinkNoUnderline>
-        <SquareButton
-          propsOnClick={() => {
-            handleLogin();
+    <>
+      <AuthLayout>
+        <form
+          onSubmit={(e) => {
+            handleLogin(e);
           }}
-          buttonText="log in"
-        />
-        <NavLinkNoUnderline to="/create-account">
-          <div className={`${styles["create-an-account"]}`}>
-            create an account
-          </div>
-        </NavLinkNoUnderline>
-      </div>
-    </AuthLayout>
+          className={`${styles["login-block"]}`}
+        >
+          <InputIcon
+            icon={<UsernameIcon />}
+            inputConfig={usernameInputConfig}
+          />
+          <InputIcon
+            icon={<PasswordIcon />}
+            inputConfig={passwordInputConfig}
+          />
+          {/* <NavLinkNoUnderline to="/forgot-password">
+            <div className={`${styles["forgot-password"]}`}>
+              forgot your password?
+            </div>
+          </NavLinkNoUnderline> */}
+          <SquareButton buttonText="log in" />
+          <NavLinkNoUnderline to="/create-account">
+            <div className={`${styles["create-an-account"]}`}>
+              create an account
+            </div>
+          </NavLinkNoUnderline>
+        </form>
+      </AuthLayout>
+    </>
   );
 }
 

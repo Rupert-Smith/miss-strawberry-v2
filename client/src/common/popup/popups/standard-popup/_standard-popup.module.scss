@@ -1,0 +1,26 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.default {
+  background-color: $color-primary-sunshineYellow-dark;
+}
+
+.warning {
+  background-color: $color-primary-sunshineYellow-dark;
+}
+
+.error {
+  background-color: $color-primary-strawberryRed;
+}
+
+.information {
+  background-color: $color-secondary-skyBlue;
+}
+
+.loading {
+  background-color: $color-secondary-skyBlue;
+}
+
+.success {
+  background-color: $color-secondary-fieldGreen;
+}

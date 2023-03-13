@@ -1,0 +1,23 @@
+.create-recipe-module-standard {
+  z-index: 0;
+}
+
+.no-blocks-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.no-blocks-text {
+  display: flex;
+  gap: 0.5em;
+  svg {
+    width: 1em;
+  }
+}
+
+.add-new-button-position-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}

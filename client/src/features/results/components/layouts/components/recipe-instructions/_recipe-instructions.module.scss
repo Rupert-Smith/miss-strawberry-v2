@@ -1,5 +1,5 @@
-@import "assets/theme/constants.module.scss";
-@import "assets/theme/mixins.scss";
+@import 'assets/theme/constants.module.scss';
+@import 'assets/theme/mixins.scss';
 
 .results-card {
   @include defaultHoverTransition;
@@ -13,5 +13,5 @@
 }
 
 .results-card-hover {
-  background-color: $color-primary-babyPink;
+  background-color: $color-primary-two;
 }

@@ -1,0 +1,13 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.loading {
+  background-color: $color-secondary-skyBlue;
+}
+
+.loading-bubbles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.3em 0em;
+}

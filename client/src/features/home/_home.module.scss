@@ -3,22 +3,25 @@
 .home-wrapper {
   width: 100%;
   display: flex;
+  height: 100vh;
   align-items: center;
   justify-content: center;
 }
 
+$miss-strawberry-size: 19em;
+
 .miss-strawberry-image-container {
   background-color: $color-primary-sunshineYellow;
   border-radius: 20em;
-  width: 17em;
+  width: $miss-strawberry-size;
   border: white 0.4em solid;
   display: flex;
   padding-left: 0.2em;
-  margin-top: -23em;
-  height: 16.7em;
+  margin-top: -5em;
+  height: $miss-strawberry-size - 0.3em;
 
   img {
-    height: 16em;
+    height: $miss-strawberry-size - 1em;
     margin-bottom: -0.1em;
   }
 }

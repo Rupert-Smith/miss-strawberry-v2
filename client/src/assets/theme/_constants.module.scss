@@ -10,8 +10,12 @@ $color-primary-bubblegumPink-hover: #de73ac;
 $color-primary-babyPink: #f4c7e4;
 $color-primary-babyPink-light: #fefafd;
 $color-primary-babyPink-hover: #f9afdf;
-// $color-primary-sunshineYellow: #f9d36d; // OLD
-$color-primary-sunshineYellow: #fde27f;
+$color-primary-sunshineYellow-dark: #f9d36d;
+// $color-primary-sunshineYellow: #fde27f;
+$color-primary-sunshineYellow: #fdea7f;
+// $color-primary-sunshineYellow: #f8ec7e;
+// $color-primary-sunshineYellow: #fef7b0;
+
 $color-primary-sunshineYellow-light: #fffcf3;
 $color-primary-sunshineYellow-superLight: #fffcf3;
 // $color-primary-beachYellow: #fbe2a5; //OLD
@@ -28,20 +32,31 @@ $color-secondary-creamWhiteDark: #fcf3d1;
 $color-secondary-marshmellowPink: #fce1f2;
 $color-secondary-caramelMilk: #fceed1;
 
+$color-primary-pink-home: #f7afe4;
+
 $color-secondary-rosePink-dark: #be6875;
 $color-secondary-rosePink: #eda9b4;
 $color-secondary-rosePink-light: #f8e4e7;
-$color-secondary-skyBlue: #cfdff7;
+// $color-secondary-skyBlue: #cfdff7;
+$color-secondary-skyBlue: #b5d1fa;
 $color-secondary-skyBlue-hover: #aecdfc;
 $color-secondary-fieldGreen: #95bd3a;
+$color-secondary-fieldGreen-light: #d4e2b2;
 
 $color-medium-grey: #727272;
+$color-disabled-dark: $color-medium-grey;
+$color-disabled-light: $color-primary-dolphinGrey;
+
 $color-medium-grey-hover: #8c8c8c;
+$color-light-grey: #a8a8a8;
 $color-medium-brown: #c98c85;
 $color-medium-brown-hover: #8d5e59;
 
 $color-border-light: rgb(177, 177, 177);
 $color-soft-white: rgb(247, 247, 247);
+$color-super-soft-white: rgb(251, 251, 251);
+
+$color-sidebar-pink-button: $color-primary-babyPink;
 
 $color-default-hover: $color-primary-bubblegumPink;
 
@@ -52,8 +67,13 @@ $color-default-hover: $color-primary-bubblegumPink;
   nightBlack: $color-primary-nightBlack;
   cherryBlossomPink: $color-primary-cherryBlossomPink;
   bubblegumPink: $color-primary-bubblegumPink;
+  babyPink: $color-primary-babyPink;
+  skyBlue: $color-secondary-skyBlue;
+  fieldGreen: $color-secondary-fieldGreen;
   sunshineYellow: $color-primary-sunshineYellow;
+  beachYellow: $color-primary-beachYellow;
   rosePink: $color-secondary-rosePink;
+  disabledLight: $color-disabled-light;
 }
 
 // ----------- FONT SIZE -----------
@@ -63,6 +83,8 @@ $fontSize-500-medium: 1rem;
 $fontSize-550-medium-title: 1.1rem;
 $fontSize-600-big: 1.2rem;
 $fontSize-900-title: 1.35rem;
+
+$fontSize-card-header: $fontSize-600-big;
 
 // ----------- BORDER RADIUS -----------
 
@@ -82,8 +104,8 @@ $transitions-defaultTransition: 0.1s;
 
 // ----------- BUTTON SIZES -----------
 
-$circle-button-default-size: 2.1em;
-$default-button-border-width: 0.1em;
+$circle-button-default-size: 35px;
+$button-border-width-default: 1px;
 
 // ----------- LAYOUT DIMENSIONS -----------
 
@@ -101,6 +123,7 @@ $sidebar-width: 3.5em;
 
 $border-default: 0.5px solid;
 $border-color-default: $color-primary-nightBlack;
+$border-color-light: rgb(222, 222, 222);
 
 // ----------- FONT WEIGHT -----------
 
@@ -122,3 +145,19 @@ $text-underline-offset-default: 0.3em;
 // ----------- ROW SPACING-----------
 
 $row-spacing-small: 0.8em;
+
+// ----------- Z INDEX -----------
+
+$zindex-results-banner: 10;
+$zindex-header: 1300;
+$zindex-backdrop: 1350;
+$zindex-window: 1400;
+$zindex-popup: 1500;
+
+// ----------- LINE HEIGHT -----------
+
+$line-height-default: 1.6;
+
+// ----------- INPUTS -----------
+
+$input-default-height: 35px;

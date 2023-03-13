@@ -1,0 +1,17 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.master-wrapper {
+  z-index: $zindex-window;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.window-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,3 +1,7 @@
 .MuiListItemButton-gutters {
   padding-left: 0.7em !important;
 }
+
+.MuiListItemButton-gutters:hover {
+  background: none !important;
+}

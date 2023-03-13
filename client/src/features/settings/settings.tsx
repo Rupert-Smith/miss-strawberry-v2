@@ -6,13 +6,7 @@ import { GeneralHeading } from "common/components/general-heading";
 
 function Settings() {
   return (
-    <MainLayout
-      backgroundStyle={{
-        // height: "90vh",
-        backgroundColor: "white",
-        width: "100%",
-      }}
-    >
+    <MainLayout backgroundId="pinic">
       <GeneralHeading heading="settings" icon={<SettingsIcon />} />
     </MainLayout>
   );

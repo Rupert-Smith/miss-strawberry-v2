@@ -1,0 +1,33 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+$card-head-height: 3.5em;
+
+.card {
+  border-radius: $borderRadius-default;
+
+  position: relative;
+  border: $border-default;
+  border-color: $color-border-light;
+}
+
+.card-body {
+  border-bottom-left-radius: $borderRadius-default;
+  border-bottom-right-radius: $borderRadius-default;
+  padding: $inner-window-spacing-small;
+  height: 100%;
+  max-height: calc(100% - $card-head-height);
+  // overflow: scroll;
+}
+
+.card-head {
+  border-top-left-radius: $borderRadius-default;
+  border-top-right-radius: $borderRadius-default;
+}
+
+.card-head-small {
+  height: 2.5em;
+}
+.card-head-big {
+  height: $card-head-height;
+}

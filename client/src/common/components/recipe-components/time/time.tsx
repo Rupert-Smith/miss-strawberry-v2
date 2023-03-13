@@ -3,7 +3,7 @@ import { ReactComponent as TimeIcon } from "assets/icons/timer-light.svg";
 import { convertTimeToString } from "common/helpers/convert-time-to-string";
 
 type RatingTypes = {
-  time: (number | null)[];
+  time: string;
   icon?: boolean;
 };
 

@@ -1,0 +1,25 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.select-wrapper {
+  padding: 5px 8px;
+  @include inputDefault;
+  display: flex;
+}
+
+.input-select {
+  // width: 100%;
+  height: 100%;
+  // @include overrideMuiStylesInput;
+  // height: 2em;
+  border: none;
+  font-size: $fontSize-500-medium;
+}
+
+select > option {
+  background-color: white;
+}
+
+.placeholder {
+  display: none;
+}

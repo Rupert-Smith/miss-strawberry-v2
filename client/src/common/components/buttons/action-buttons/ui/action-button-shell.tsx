@@ -1,12 +1,13 @@
 import React, { ReactNode } from "react";
 import styles from "./_action-button-shell.module.scss";
 
-type Props = {
+type ActionButtonShellProps = {
   children?: ReactNode;
   className?: ReactNode;
   onMouseEnter?: any;
   onMouseLeave?: any;
   small?: boolean;
+  propsOnClick: Function;
 };
 
 function ActionButtonShell({
@@ -14,10 +15,14 @@ function ActionButtonShell({
   className,
   onMouseEnter,
   onMouseLeave,
+  propsOnClick,
   small,
-}: Props) {
+}: ActionButtonShellProps) {
   return (
     <div
+      onClick={() => {
+        propsOnClick();
+      }}
       onMouseLeave={onMouseLeave}
       onMouseEnter={onMouseEnter}
       className={`${className} ${styles["action-button-shell"]} ${

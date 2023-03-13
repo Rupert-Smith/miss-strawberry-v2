@@ -23,6 +23,7 @@
   text-align: center;
   border-color: $color-medium-grey;
   @include smallGreyText;
+  @include defaultHoverTransition;
 }
 
 .forgot-password:hover {

@@ -1,11 +1,18 @@
-import { recipeInstructionsPreview } from "common/helpers/recipe-instructions-preview";
+import { recipeInstructionsPreviewGenerator } from 'common/helpers/recipe-instructions-preview-generator';
+import { noRecipeSteps } from 'constants/recipe-constants';
+import { Block } from 'common/types/common-types';
 
 type ResultsCardTypes = {
-  steps: string[];
+  steps: Block[];
 };
 
 function RecipeInstructions({ steps }: ResultsCardTypes) {
-  return <>{recipeInstructionsPreview(steps)}</>;
+  const recipeInstructionsPreview =
+    steps.length > 0
+      ? recipeInstructionsPreviewGenerator(steps)
+      : noRecipeSteps;
+
+  return <>{recipeInstructionsPreview}</>;
 }
 
 export { RecipeInstructions };

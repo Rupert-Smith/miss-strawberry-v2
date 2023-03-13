@@ -6,11 +6,12 @@
   flex-direction: row !important;
   justify-content: space-between;
   background-color: $color-primary-sunshineYellow !important;
+  background-color: rgb(255, 251, 222);
   padding: 0em 1em;
   box-shadow: none !important;
   height: $header-height;
   position: fixed;
-  z-index: 1300 !important; //sidebar z-index is 1200
+  z-index: $zindex-header !important; //sidebar z-index is 1200
 }
 
 .header-section {
@@ -53,15 +54,13 @@
 }
 
 .header-circle-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: $circle-button-default-size;
   height: $circle-button-default-size;
-  border-radius: $borderRadius-circle;
-  border-style: solid;
-  border-width: $default-button-border-width;
-  @include defaultHoverTransition;
+  @include headerCircleButton;
+
+  svg {
+    width: 1.05em;
+  }
 }
 
 .miss-strawberry-home-image {
@@ -73,30 +72,25 @@
 .menu-header-button {
   color: $color-primary-bubblegumPink;
   width: 1.2em;
-  @include defaultHoverTransition;
 }
 
 .default-header-button {
   @include defaultHeaderButton;
 }
 
+.chef-header-button {
+  width: 21px;
+  height: 25px;
+}
+
 .profile-button {
   border-radius: 90em;
 }
 
-.new-recipe-button {
-  border-color: $color-primary-bubblegumPink;
-  background-color: white;
-  svg {
-    color: $color-primary-bubblegumPink;
-    width: 1.05em;
-  }
+.disabled {
+  @include disabled;
 }
 
-.new-recipe-button:hover {
-  border-color: white;
-  background-color: $color-primary-cherryBlossomPink;
-  svg {
-    color: white;
-  }
+.not-disabled {
+  @include notDisabled;
 }

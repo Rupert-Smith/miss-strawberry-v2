@@ -1,28 +1,57 @@
 @import "assets/theme/constants.module.scss";
 @import "assets/theme/mixins.scss";
 
+.search-form {
+  display: flex;
+  position: relative;
+}
+
 .search-bar-button {
-  color: white;
   background-color: $color-primary-cherryBlossomPink;
+  color: white;
   border-radius: $borderRadius-circle;
   display: flex;
   position: absolute;
   font-size: 0.8em;
+  border: none;
+  right: 0;
   gap: 0.6em;
-  padding: 0.55em 3em;
+  padding: 0.75em 3em;
   align-items: center;
   justify-content: center;
-  @include defaultHoverTransition;
+
   svg {
-    width: 1em;
+    width: 13px;
     color: white;
   }
 }
 
-.search-bar-button:hover {
-  background-color: $color-primary-cherryBlossomPink-hover;
+.search-bar-button-inside {
+  width: 5em;
+  height: 1.1em;
+  gap: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // flex-direction: row;
 }
+
+// .search-bar-disabled {
+//   background-color: $color-disabled-light;
+// }
 
 .default-header-button {
   @include defaultHeaderButton;
+}
+
+.button-disabled {
+  background-color: $color-disabled-dark;
+}
+
+.button-not-disabled {
+  @include defaultHoverTransition;
+}
+
+.button-not-disabled:hover {
+  background-color: $color-primary-cherryBlossomPink-hover;
 }

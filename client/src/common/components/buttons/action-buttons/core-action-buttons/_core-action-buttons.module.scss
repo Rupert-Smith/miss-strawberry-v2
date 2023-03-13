@@ -12,12 +12,29 @@
   background-color: $color-primary-beachYellow-hover;
 }
 
-.add-to-favourites {
+// .add-to-favourites {
+// }
+
+.favourite {
   background-color: $color-primary-babyPink;
 }
 
-.add-to-favourites:hover {
+.favourite:hover {
   background-color: $color-primary-babyPink-hover;
+}
+
+.not-favourite {
+  // background-color: $color-primary-babyPink;
+  img {
+    // filter: brightness(0) invert(1);
+  }
+}
+
+.not-favourite:hover {
+  background-color: $color-primary-babyPink-hover;
+  img {
+    filter: none;
+  }
 }
 
 .edit-recipe-button {

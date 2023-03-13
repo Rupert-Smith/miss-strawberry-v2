@@ -1,0 +1,9 @@
+.search-bar-mui {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.search-bar-mui .MuiOutlinedInput-notchedOutline {
+  display: none !important;
+}/*# sourceMappingURL=mui-header-styles.css.map */

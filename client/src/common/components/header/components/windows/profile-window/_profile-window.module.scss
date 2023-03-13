@@ -1,0 +1,108 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.profile-window-container {
+  z-index: $zindex-window;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 17em;
+  gap: 1.5em;
+  height: 22.5em;
+  margin-top: 31px;
+  margin-left: -236px;
+}
+
+.menu-block {
+  color: $color-primary-nightBlack;
+}
+
+.menu-item {
+  display: flex;
+  height: 2.3em;
+  gap: 0.8em;
+  padding: 1em 1em;
+  align-items: center;
+  @include defaultHoverTransition;
+
+  svg {
+    width: 1em;
+  }
+}
+
+.user-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  flex-direction: column;
+  color: $color-primary-nightBlack;
+}
+
+.avatar-master-container {
+  position: relative;
+}
+
+.avatar {
+  width: 4em !important;
+  height: 4em !important;
+}
+
+.avatar-camera-button {
+  background-color: $color-primary-cherryBlossomPink;
+  border: none;
+  border-radius: $borderRadius-circle;
+  position: absolute;
+  right: 0;
+  width: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  margin-top: -2em;
+  @include defaultHoverTransition;
+
+  svg {
+    width: 0.95em;
+    color: white;
+  }
+}
+
+.avatar-camera-button:hover {
+  @include defaultHoverColors;
+}
+
+.username {
+  font-weight: 600;
+  font-size: $fontSize-600-big;
+}
+
+.email {
+  font-size: $fontSize-300-small;
+}
+
+.menu-item:hover {
+  @include defaultHoverColors;
+}
+
+.odd-item {
+  background-color: $color-primary-cloudWhite;
+}
+
+.even-item {
+  background-color: $color-primary-dolphinGrey;
+}
+
+.sign-out-block {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    align-items: center;
+    height: 2em;
+    width: 10em;
+  }
+}

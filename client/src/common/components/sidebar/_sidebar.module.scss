@@ -6,17 +6,40 @@
   width: 15em !important;
 }
 
-.sidebar-option {
-  @include defaultHoverTransition;
-}
-
-.sidebar-option:hover {
+@mixin selected {
   background-color: $color-primary-cherryBlossomPink;
   color: white;
 
   svg {
     opacity: 100;
   }
+}
+
+.sidebar-option {
+  // @include defaultHoverTransition;
+}
+
+.sidebar-option-disabled:hover {
+  * {
+    cursor: default !important;
+  }
+
+  li {
+    background: none !important;
+  }
+
+  // background-color: red;
+  // svg {
+  //   opacity: 0;
+  // }
+}
+
+.sidebar-option:hover {
+  @include selected;
+}
+
+.selected {
+  @include selected;
 }
 
 // .sidebar-option .MuiListItemButton-gutters {
@@ -26,13 +49,9 @@
 .option-button {
   width: $circle-button-default-size;
   height: $circle-button-default-size;
-  margin-right: 1em;
-  border-radius: $borderRadius-circle;
-  display: flex;
-  justify-content: center;
   padding: 1em;
-  align-items: center;
-  @include defaultHoverTransition;
+  @include optionButton;
+  // @include defaultHoverTransition;
 }
 
 .yellow-button {
@@ -40,7 +59,7 @@
 }
 
 .pink-button {
-  background-color: $color-primary-babyPink;
+  background-color: $color-sidebar-pink-button;
 }
 
 .medium-button-image {
@@ -58,4 +77,13 @@
   opacity: 0;
   width: 0.6em;
   color: $color-secondary-marshmellowPink;
+}
+
+.disabled {
+  background-color: $color-primary-dolphinGrey;
+  @include disabled;
+}
+
+.not-disabled {
+  @include notDisabled;
 }

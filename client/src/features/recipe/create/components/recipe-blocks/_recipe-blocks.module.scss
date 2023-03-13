@@ -1,0 +1,126 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+// All blocks
+
+.recipe-blocks-container {
+  margin-bottom: $inner-window-spacing-small;
+  display: flex;
+  flex-direction: column;
+  gap: $inner-window-spacing-small;
+}
+
+.block {
+  display: flex;
+  gap: $inner-window-spacing-small;
+  align-items: center;
+}
+
+.close-icon {
+  opacity: 0.4;
+  color: $color-primary-strawberryRed;
+  width: 1.8em;
+  @include defaultHoverTransition;
+}
+
+.close-icon:hover {
+  opacity: 1;
+  color: $color-primary-strawberryRed;
+}
+
+// Text label blocks
+
+.label {
+  width: fit-content;
+  white-space: nowrap;
+  min-width: 6em;
+}
+
+.text-box {
+  padding: 0.8em;
+  width: 100%;
+  border: 1px solid;
+  border-color: $border-color-light;
+
+  textarea {
+    font-family: inherit;
+    resize: none;
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: $fontSize-500-medium;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+}
+
+// Ingredient blocks
+
+.ingredient-card {
+  border: 1px solid;
+  border-color: $border-color-light;
+  padding: 0.8em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: 1em;
+}
+
+// .override-mui-styles-input {
+//   @include overrideMuiStylesInput;
+// }
+
+.select-unit {
+  width: 8em;
+}
+
+.food-input {
+  padding-left: 0.5em;
+  width: 16em;
+  font-size: $fontSize-500-medium;
+  @include inputDefault;
+}
+
+.number-input {
+  width: 5em;
+  @include inputDefault;
+
+  fieldset {
+    border: none;
+  }
+
+  input {
+    padding: 0.6em !important;
+    height: 25px !important;
+  }
+}
+
+.ingredient-input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.select-category {
+  width: 15em;
+}
+
+.add-input-button {
+  @include inputDefault;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include defaultHoverTransition;
+  gap: 0.5em;
+  svg {
+    width: 0.8em;
+  }
+}
+
+.add-input-button:hover {
+  @include defaultHoverColors;
+}

@@ -4,7 +4,7 @@ export const convertToPlural = (
 ) => {
   let convertedString = singularString;
 
-  if (value && value > 1) {
+  if ((value && value > 1) || value === 0) {
     convertedString = `${singularString}s`;
   }
 

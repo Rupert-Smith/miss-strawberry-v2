@@ -1,0 +1,21 @@
+@import "assets/theme/constants.module.scss";
+@import "assets/theme/mixins.scss";
+
+.label-input-container {
+  display: flex;
+  gap: 1.6em;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  label {
+    white-space: nowrap;
+  }
+
+  input {
+    font-size: $fontSize-500-medium;
+    padding: 0.2em 0.5em;
+    border: none;
+    @include inputDefault;
+  }
+}
