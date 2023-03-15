@@ -34,26 +34,29 @@ export default function useDefaultCall() {
   function handleError(error: any, callConfig: any) {
     console.error(error);
     if (!error?.response) {
-      return errorDefault("no server response", "something went wrong");
+      return errorDefault("could not connect to server", "no server response");
     }
-    const defaultErrorHeader = callConfig.errorHeader;
+    const errorHeader = callConfig.errorHeader;
     let backendMessage = returnErrorMessage();
 
     function returnErrorMessage() {
-      if (error.response.status === 500) {
+      if (error.response.status === 500 && error.response.data.error.message) {
         return error.response.data.error.message;
       }
       if (error.response.data.message) {
         return error.response.data.message;
+      }
+      if (callConfig.errorMessage) {
+        return callConfig.errorMessage;
       } else {
-        return "wow, something really bad went wrong here. not sure about this one. maybe just give up hope?";
+        return "something went wrong";
       }
     }
-    if (callConfig.cleanUp && backendMessage) {
-      backendMessage = callConfig.errorCleanup(backendMessage);
-    }
+    // if (callConfig.cleanUp && backendMessage) {
+    //   backendMessage = callConfig.errorCleanup(backendMessage);
+    // }
 
-    errorDefault(backendMessage, defaultErrorHeader);
+    errorDefault(backendMessage, errorHeader);
   }
 
   return { defaultCall };

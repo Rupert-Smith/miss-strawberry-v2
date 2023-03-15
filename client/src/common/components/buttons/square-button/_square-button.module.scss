@@ -10,5 +10,8 @@
   border-radius: $borderRadius-default;
   padding-top: $rectangle-container-small-padding;
   padding-bottom: $rectangle-container-small-padding;
+}
+
+.not-disabled {
   @include defaultHoverTransition;
 }

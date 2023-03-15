@@ -35,6 +35,7 @@ export default function useHandleLogin(username: string, password: string) {
         data: { username, password },
       },
       callSuccess,
+      errorMessage: "login failed, please try again",
       errorHeader: "login failed",
     };
 

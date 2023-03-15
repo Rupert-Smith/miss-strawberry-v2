@@ -49,3 +49,17 @@
     opacity: 0.5; /* Firefox */
   }
 }
+
+.input-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 2px solid;
+  border-color: white;
+  border-radius: $borderRadius-default;
+}
+
+.input-wrapper-error {
+  // border-color: $color-error;
+}
