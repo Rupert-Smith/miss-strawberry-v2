@@ -4,9 +4,15 @@
 .recipe-card-container {
   width: 75em;
   margin: auto;
+  height: 100%;
+  // height: fit-content;
+  position: relative;
 }
 
 .new-recipe-head {
+  z-index: 1000;
+  width: 75em;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,6 +54,8 @@
 }
 
 .body {
+  overflow: scroll;
+  margin-top: 3.5em;
   display: flex;
   flex-direction: column;
   gap: $inner-window-spacing-small;

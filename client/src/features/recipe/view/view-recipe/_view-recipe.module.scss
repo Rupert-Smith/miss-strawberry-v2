@@ -2,7 +2,7 @@
 @import "assets/theme/mixins.scss";
 
 .recipe-card-master {
-  height: fit-content;
+  height: 100%;
 }
 
 .header-main {
@@ -51,6 +51,7 @@
 }
 
 .recipe-body {
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   gap: $inner-window-spacing-small;
