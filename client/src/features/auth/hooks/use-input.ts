@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import { useReducer } from "react";
 
 const initialInputState = { value: "", isTouched: false };
 
@@ -9,14 +9,23 @@ const inputStateReducer = (
   if (action.type === "INPUT") {
     return { value: action.value, isTouched: state.isTouched };
   }
+
   if (action.type === "BLUR") {
     return { isTouched: true, value: state.value };
-  } else {
-    return state;
   }
+
+  return state;
 };
 
-const useInput = (validateValue: Function) => {
+type useInputReturn = {
+  value: string;
+  isTouched: boolean;
+  error: { hasError: boolean; errorMessage: string };
+  valueChangeHandler: Function;
+  inputBlurHandler: Function;
+};
+
+const useInput = (validateValue: Function): useInputReturn => {
   const [inputState, dispatch] = useReducer(
     inputStateReducer,
     initialInputState
@@ -24,7 +33,7 @@ const useInput = (validateValue: Function) => {
 
   const validConfig = validateValue(inputState.value);
 
-  let hasError =
+  const error =
     !validConfig.valueIsValid && inputState.isTouched
       ? { hasError: true, errorMessage: validConfig.message }
       : { hasError: false, errorMessage: "" };
@@ -40,7 +49,7 @@ const useInput = (validateValue: Function) => {
   return {
     value: inputState.value,
     isTouched: inputState.isTouched,
-    hasError,
+    error,
     valueChangeHandler,
     inputBlurHandler,
   };

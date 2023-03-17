@@ -1,13 +1,14 @@
 import useInput from "features/auth/hooks/use-input";
-import { isEmpty } from "common/helpers/auth-checkers";
+import { isEmpty } from "common/helpers/validators";
 import { useEffect, useState } from "react";
+import { inputConfigTypeLabel } from "features/auth/types/input-types";
 
 export default function useCreateAccountInputData() {
   const [disabled, setDisabled] = useState(true);
 
   const {
     value: usernameValue,
-    hasError: usernameError,
+    error: usernameError,
     isTouched: usernameIsTouched,
     valueChangeHandler: usernameChangeHandler,
     inputBlurHandler: usernameBlurHandler,
@@ -15,7 +16,7 @@ export default function useCreateAccountInputData() {
 
   const {
     value: passwordValue,
-    hasError: passwordError,
+    error: passwordError,
     isTouched: passwordIsTouched,
     valueChangeHandler: passwordChangeHandler,
     inputBlurHandler: passwordBlurHandler,
@@ -23,7 +24,7 @@ export default function useCreateAccountInputData() {
 
   const {
     value: passwordConfirmValue,
-    hasError: passwordConfirmError,
+    error: passwordConfirmError,
     isTouched: passwordConfirmIsTouched,
     valueChangeHandler: passwordConfirmChangeHandler,
     inputBlurHandler: passwordConfirmBlurHandler,
@@ -31,13 +32,18 @@ export default function useCreateAccountInputData() {
 
   const {
     value: emailValue,
-    hasError: emailError,
+    error: emailError,
     isTouched: emailIsTouched,
     valueChangeHandler: emailChangeHandler,
     inputBlurHandler: emailBlurHandler,
   } = useInput(checkEmailAddress);
 
-  function checkUsername(value: string) {
+  type checkInput = {
+    message: string;
+    valueIsValid: boolean;
+  };
+
+  function checkUsername(value: string): checkInput {
     if (isEmpty(value))
       return {
         message: "please enter a username",
@@ -47,12 +53,13 @@ export default function useCreateAccountInputData() {
     return { valueIsValid: true, message: "" };
   }
 
-  function checkPassword(value: string) {
+  function checkPassword(value: string): checkInput {
     if (isEmpty(value))
       return {
         message: "please enter a password",
         valueIsValid: false,
       };
+
     if (value.length < 8) {
       return {
         message: "please make sure password is 8 characters long",
@@ -63,12 +70,13 @@ export default function useCreateAccountInputData() {
     return { valueIsValid: true, message: "" };
   }
 
-  function checkPasswordConfirm(value: string) {
+  function checkPasswordConfirm(value: string): checkInput {
     if (isEmpty(value))
       return {
         message: "please confirm password",
         valueIsValid: false,
       };
+
     if (value.length < 8) {
       return {
         message: "please make sure password is 8 characters long",
@@ -79,12 +87,13 @@ export default function useCreateAccountInputData() {
     return { valueIsValid: true, message: "" };
   }
 
-  function checkEmailAddress(value: string) {
+  function checkEmailAddress(value: string): checkInput {
     if (isEmpty(value))
       return {
         message: "please enter an email address",
         valueIsValid: false,
       };
+
     const validate: any = /^\S+@\S+$/;
     if (!validate.test(value)) {
       return {
@@ -95,7 +104,7 @@ export default function useCreateAccountInputData() {
     return { valueIsValid: true, message: "" };
   }
 
-  const usernameInputConfig: any = {
+  const usernameInputConfig: inputConfigTypeLabel = {
     labelText: "username",
     placeholder: "alice",
     type: "text",
@@ -106,7 +115,7 @@ export default function useCreateAccountInputData() {
       usernameChangeHandler(updatedUsername);
     },
   };
-  const passwordInputConfig: any = {
+  const passwordInputConfig: inputConfigTypeLabel = {
     labelText: "password",
     placeholder: "*********",
     type: "password",
@@ -118,7 +127,7 @@ export default function useCreateAccountInputData() {
     },
   };
 
-  const passwordConfirmInputConfig: any = {
+  const passwordConfirmInputConfig: inputConfigTypeLabel = {
     labelText: "password confirm",
     placeholder: "*********",
     type: "password",
@@ -130,7 +139,7 @@ export default function useCreateAccountInputData() {
     },
   };
 
-  const emailConfig: any = {
+  const emailConfig: inputConfigTypeLabel = {
     labelText: "email address",
     placeholder: "alice@example.com",
     type: "email",
@@ -152,6 +161,7 @@ export default function useCreateAccountInputData() {
     ) {
       return;
     }
+
     if (
       passwordError.hasError ||
       usernameError.hasError ||
@@ -160,6 +170,7 @@ export default function useCreateAccountInputData() {
     ) {
       setDisabled(true);
     }
+
     if (!passwordError.hasError && !usernameError.hasError) {
       setDisabled(false);
     }
