@@ -4,7 +4,7 @@
   background-color: $color-secondary-caramelMilk;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -12,7 +12,8 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
-  margin-top: 10em;
+  align-items: center;
+  justify-content: center;
 }
 
 .miss-strawberry-image {
