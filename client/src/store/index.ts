@@ -8,20 +8,34 @@ import audioSlice from "common/store/audio-slice";
 import profileSettingsSlice from "common/store/profile-settings-slice";
 import resultsSlice from "features/results/store/results-slice";
 import headerSidebarSlice from "common/store/header-sidebar-slice";
+import storage from "redux-persist/lib/storage";
+import { persistStore, persistReducer } from "redux-persist";
+import { combineReducers } from "@reduxjs/toolkit";
+
+const rootReducer = combineReducers({
+  cards: cardsReducer,
+  auth: authReducer,
+  createRecipe: createRecipeReducer,
+  recipes: recipesReducer,
+  recipeLayout: recipeLayoutSlice,
+  audio: audioSlice,
+  profileSettings: profileSettingsSlice,
+  results: resultsSlice,
+  sidebarHeader: headerSidebarSlice,
+});
+const persistConfig = {
+  key: "root",
+  storage,
+  // whitelist: ["auth", "results", "cards", "results", ], // only persist the 'auth' slice of state
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const missStrawberryStore = configureStore({
-  reducer: {
-    cards: cardsReducer,
-    auth: authReducer,
-    createRecipe: createRecipeReducer,
-    recipes: recipesReducer,
-    recipeLayout: recipeLayoutSlice,
-    audio: audioSlice,
-    profileSettings: profileSettingsSlice,
-    results: resultsSlice,
-    sidebarHeader: headerSidebarSlice,
-  },
+  reducer: persistedReducer,
 });
+
+export const persistor = persistStore(missStrawberryStore);
 
 export default missStrawberryStore;
 

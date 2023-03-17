@@ -8,6 +8,7 @@ export default function useHandleLogout() {
   const handleLogout = () => {
     function callSuccess(logoutData: any) {
       navigate("/login");
+      localStorage.clear();
       window.location.reload();
     }
 
