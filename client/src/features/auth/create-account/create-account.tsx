@@ -1,57 +1,21 @@
-import { useState } from "react";
 import styles from "./_create-account.module.scss";
 import { AuthLayout } from "../components/layout/auth-layout";
 import { SquareButton } from "common/components/buttons/square-button";
 import { NavLinkNoUnderline } from "common/components/helper-components/nav-link-no-underline";
 import { InputBoxLabel } from "common/components/inputs/text-field/input-label";
-import useCreateAccount from "../hooks/useCreateAccount";
+import useCreateAccount from "./hooks/use-create-account";
+import useCreateAccountInputData from "./hooks/use-create-account-input-data";
 
 function CreateAccount() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [email, setEmail] = useState("");
-
   const { createAccount } = useCreateAccount();
 
-  const usernameInputConfig = {
-    labelText: "username",
-    placeholder: "alice",
-    type: "text",
-    value: username,
-    onChange: (updatedUsername: string) => {
-      setUsername(updatedUsername);
-    },
-  };
-  const passwordInputConfig = {
-    labelText: "password",
-    placeholder: "*********",
-    type: "password",
-    value: password,
-    onChange: (updatedPassword: string) => {
-      setPassword(updatedPassword);
-    },
-  };
-
-  const passwordConfirmInputConfig = {
-    labelText: "password confirm",
-    placeholder: "*********",
-    type: "password",
-    value: passwordConfirm,
-    onChange: (updatedPassword: string) => {
-      setPasswordConfirm(updatedPassword);
-    },
-  };
-
-  const createAccountConfig = {
-    labelText: "email address",
-    placeholder: "alice@example.com",
-    type: "text",
-    value: email,
-    onChange: (updatedEmail: string) => {
-      setEmail(updatedEmail);
-    },
-  };
+  const {
+    usernameInputConfig,
+    passwordInputConfig,
+    passwordConfirmInputConfig,
+    emailConfig,
+    disabled,
+  } = useCreateAccountInputData();
 
   return (
     <AuthLayout>
@@ -59,11 +23,17 @@ function CreateAccount() {
         <InputBoxLabel inputConfig={usernameInputConfig} />
         <InputBoxLabel inputConfig={passwordInputConfig} />
         <InputBoxLabel inputConfig={passwordConfirmInputConfig} />
-        <InputBoxLabel inputConfig={createAccountConfig} />
+        <InputBoxLabel inputConfig={emailConfig} />
         <div className={`${styles["bottom-block"]}`}>
           <SquareButton
+            disabled={disabled}
             propsOnClick={() => {
-              createAccount({ username, password, passwordConfirm, email });
+              createAccount({
+                username: usernameInputConfig.value,
+                password: passwordInputConfig.value,
+                passwordConfirm: passwordConfirmInputConfig.value,
+                email: emailConfig.value,
+              });
             }}
             buttonText="create account"
           />

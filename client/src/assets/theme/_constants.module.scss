@@ -46,6 +46,7 @@ $color-secondary-fieldGreen-light: #d4e2b2;
 $color-medium-grey: #727272;
 $color-disabled-dark: $color-medium-grey;
 $color-disabled-light: $color-primary-dolphinGrey;
+$color-error: $color-primary-strawberryRed;
 
 $color-medium-grey-hover: #8c8c8c;
 $color-light-grey: #a8a8a8;
@@ -74,6 +75,7 @@ $color-default-hover: $color-primary-bubblegumPink;
   beachYellow: $color-primary-beachYellow;
   rosePink: $color-secondary-rosePink;
   disabledLight: $color-disabled-light;
+  disabledDark: $color-disabled-dark;
 }
 
 // ----------- FONT SIZE -----------

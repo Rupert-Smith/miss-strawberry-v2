@@ -1,35 +1,21 @@
 import styles from "./_login.module.scss";
-import { useState } from "react";
 import { AuthLayout } from "../components/layout/auth-layout";
 import { SquareButton } from "common/components/buttons/square-button";
 import { InputIcon } from "common/components/inputs/text-field/input-icon";
 import { ReactComponent as UsernameIcon } from "assets/icons/circle-user-solid.svg";
 import { ReactComponent as PasswordIcon } from "assets/icons/lock-solid.svg";
 import { NavLinkNoUnderline } from "common/components/helper-components/nav-link-no-underline";
+import useLoginInputData from "./hooks/use-login-input-data";
 import useHandleLogin from "./hooks/use-handle-login";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const { usernameInputConfig, passwordInputConfig, disabled } =
+    useLoginInputData();
 
-  const { handleLogin } = useHandleLogin(username, password);
-
-  const usernameInputConfig = {
-    placeholder: "username",
-    type: "text",
-    value: username,
-    onChange: (event: any) => {
-      setUsername(event.target.value);
-    },
-  };
-  const passwordInputConfig = {
-    placeholder: "password",
-    type: "password",
-    value: password,
-    onChange: (event: any) => {
-      setPassword(event.target.value);
-    },
-  };
+  const { handleLogin } = useHandleLogin(
+    usernameInputConfig.value,
+    passwordInputConfig.value
+  );
 
   return (
     <>
@@ -53,7 +39,7 @@ function Login() {
               forgot your password?
             </div>
           </NavLinkNoUnderline> */}
-          <SquareButton buttonText="log in" />
+          <SquareButton disabled={disabled} buttonText="log in" />
           <NavLinkNoUnderline to="/create-account">
             <div className={`${styles["create-an-account"]}`}>
               create an account

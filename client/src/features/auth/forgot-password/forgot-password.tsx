@@ -28,7 +28,7 @@ function ForgotPassword() {
           enter your email to and we’ll send you a link to reset your password!
         </div>
         <div className={`${styles["blocks"]}`}>
-          <InputBoxLabel inputConfig={emailConfig} />
+          {/* <InputBoxLabel inputConfig={emailConfig} /> */}
           <SquareButton
             propsOnClick={() => {
               console.log("");
